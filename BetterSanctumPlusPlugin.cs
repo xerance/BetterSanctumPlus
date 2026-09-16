@@ -450,9 +450,9 @@ public class BetterSanctumPlusPlugin : BaseSettingsPlugin<BetterSanctumPlusSetti
         base.AreaChange(area);
     }
 
-    // Asked for by bridge name rather than by plugin: Ninja Price and Get-Chaos-Value both
-    // register this one, and either will do. Resolved lazily and retried, since whichever
-    // is installed registers it in its own Initialise, which may run after ours. Null
+    // Asked for by bridge name rather than by plugin: Get-Chaos-Value
+    // registers this one, despite the name. Resolved lazily and retried, since the price
+    // plugin registers it in its own Initialise, which may run after ours. Null
     // simply means neither is there, and prices are then left out rather than the feature
     // failing loudly.
     // force skips the five second wait between retries, for a reload asked for by hand

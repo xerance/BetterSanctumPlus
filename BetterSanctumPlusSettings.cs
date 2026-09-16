@@ -910,7 +910,7 @@ public class RoutingSettings
     [JsonIgnore]
     public CustomNode Help { get; set; } = SettingsHelp.Block(
         "Picks one room per layer from where you stand to the boss and frames it. Routes are scored in chaos: the reward you would take, less what the rooms and afflictions on the way cost.",
-        "Rewards are priced from the price plugin and multiplied by the measured quantity for their slot, so a single-item reward in the third slot on floor 4 counts double. Any plugin registering the NinjaPrice.GetBaseItemTypeValue bridge method will do - Ninja Price and Get-Chaos-Value both answer to it.",
+        "Rewards are priced from the price plugin and multiplied by the measured quantity for their slot, so a single-item reward in the third slot on floor 4 counts double. They come from Get-Chaos-Value, through the NinjaPrice.GetBaseItemTypeValue bridge method it registers.",
         "With no price plugin at all, the divine falls back to the figure below and every reward reads as the unknown reward figure, so rewards stop separating routes and only rooms and afflictions do. Price the ones you care about by hand with the currency overrides.",
         "Rooms and afflictions have no price of their own, so they are set as a percentage of a divine and move with it. A room at tier 0 is worth the room anchor, tier 5 nothing, tier 10 costs the anchor. An affliction at tier 5 costs the affliction anchor, and tier 6 is never walked into.",
         "Two things are absolute and are compared before any chaos: a reward worth more than Must Take Percent Of Divine is routed to through anything, including an affliction at 6, and an affliction at 6 is otherwise never entered.");
@@ -955,7 +955,7 @@ public class MapDisplaySettings
         "Text and connection lines drawn over the Sanctum floor map.",
         "Each connection carries three stacked lines - currency, room type, affliction - coloured by the best of that kind reachable through it. Set line thickness to 0 to hide them and leave only the route frame.",
         "Hide under game UI drops any text, frame or line that would be covered by an open panel or the chat box, the same way the overlay already gives way to a room tooltip.",
-        "Show reward prices needs a price plugin registering the NinjaPrice.GetBaseItemTypeValue bridge method - Ninja Price and Get-Chaos-Value both do. On the map it prices every reward that has a price, as the count and what that many come to (\"2x = 800c\"), which is the figure the route is scoring rather than a unit price beside it. Quantity is measured, since room data does not expose it. In the reward window all three offers are priced, with the quantity read from the offer text.",
+        "Show reward prices needs Get-Chaos-Value, which registers the NinjaPrice.GetBaseItemTypeValue bridge method. On the map it prices every reward that has a price, as the count and what that many come to (\"2x = 800c\"), which is the figure the route is scoring rather than a unit price beside it. Quantity is measured, since room data does not expose it. In the reward window all three offers are priced, with the quantity read from the offer text.",
         "Show prices in divine converts using the live Divine Orb price, read from the game's own reward list, and falls back to chaos while that is unknown.",
         "Isolate hovered room hides every other room's text and the connection lines while you hover, so a floor does not write more than can be read at once. The route itself stays visible.");
 

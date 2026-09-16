@@ -17,10 +17,8 @@ The in-room spawner and hazard overlay is ported from
 the above, which is also where the idea of scoring whole routes rather than colouring
 individual connections comes from.
 
-Prices come through the plugin bridge from anything registering
-`NinjaPrice.GetBaseItemTypeValue` - [Ninja Price](https://github.com/exCore2/NinjaPricer)
-and [Get-Chaos-Value](https://github.com/exApiTools/Get-Chaos-Value) both do, so either
-one will serve and there is no reason to run both.
+Prices come from [Get-Chaos-Value](https://github.com/exApiTools/Get-Chaos-Value), through
+the `NinjaPrice.GetBaseItemTypeValue` plugin bridge method it registers.
 
 Donation addresses, carried over unchanged:
 
